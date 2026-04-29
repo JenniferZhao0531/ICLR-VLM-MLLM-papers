@@ -274,8 +274,20 @@ def build():
     <div style="margin-top:24px;padding-top:16px;border-top:1px solid #eaecef;font-size:11px;color:#959da5;line-height:1.6">
       📊 数据来源：<br>OpenReview ICLR 2026<br>
       （从 5,352 篇接收论文中筛选 {total} 篇）<br><br>
-      💡 每篇论文的"六维度"由大语言模型基于 abstract 自动生成，仅供快速浏览，详见原文。
+      💡 每篇论文的"六维度"由大语言模型基于 abstract 自动生成，仅供快速浏览，详见原文。<br><br>
+      <span id="visit-stats" style="display:none">👁 总访问 <b id="gc-pv" style="color:#0366d6"></b> 次　·　访客 <b id="gc-uv" style="color:#0366d6"></b> 人</span>
     </div>
+    <!-- GoatCounter：访问追踪 -->
+    <script data-goatcounter="https://jenniferzhao0531.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <!-- GoatCounter：在页面上显示总访问 / 访客数 -->
+    <script>
+    fetch('https://jenniferzhao0531.goatcounter.com/counter/TOTAL.json')
+      .then(r => r.json()).then(d => {{
+        document.getElementById('gc-pv').textContent = (d.count || '0').toString().replace(/\\B(?=(\\d{{3}})+(?!\\d))/g, ',');
+        document.getElementById('gc-uv').textContent = (d.count_unique || '0').toString().replace(/\\B(?=(\\d{{3}})+(?!\\d))/g, ',');
+        document.getElementById('visit-stats').style.display = 'inline';
+      }}).catch(()=>{{}});
+    </script>
   </aside>
   <main class="main">
     <div class="main-header">
